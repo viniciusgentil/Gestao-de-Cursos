@@ -1,10 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default props => (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">
-            ABC Courses
- </a>
+        <Link className="navbar-brand" to="/">ABC Courses</Link>
 
         <button className="navbar-toggler" type="button"
             data-toggle="collapse"
@@ -17,10 +16,10 @@ export default props => (
         <div className="collapse navbar-collapse" id="navbarContent">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <a className="nav-link" href="#/cursos">Cursos</a>
+                    <Link className="nav-link" to="/cursos">Cursos</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#/contato">Contato</a>
+                    <Link className="nav-link" to="/contato">Contato</Link>
                 </li>
             </ul>
         </div>
