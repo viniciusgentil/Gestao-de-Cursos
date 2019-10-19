@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Cabecalho from '../../components/menu/Cabecalho';
+import Cadastro from './cadastro';
 
 export default class Curso extends Component {
     render() {
@@ -7,6 +8,8 @@ export default class Curso extends Component {
             
             <div className="container">
                 <Cabecalho titulo="Cursos" subtitulo="Gerenciamento dos cursos" />
+
+                <Cadastro />
             </div>
         )
     }
