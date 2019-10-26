@@ -11,6 +11,13 @@ export default class Lista extends React.Component {
                     <td>{curso.descricao}</td>
                     <td>
                         <button 
+                            className="btn btn-success"
+                            onClick={ () => this.props.consultarCurso(curso) }
+                        >
+                            <i className="fa fa-check"></i>
+                        </button>
+                        &nbsp; 
+                        <button 
                             className="btn btn-danger"
                             onClick={ () => this.props.removerCurso(curso) }
                         >
