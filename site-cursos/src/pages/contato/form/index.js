@@ -13,15 +13,17 @@ class FormContato extends Component {
 
     adicionar = function(e) {
         e.preventDefault();
-        this.props.adicionaContato(
-            this.props.data,
-            this.props.nome,
-            this.props.email,
-            this.props.assunto);
+
+        const {data, nome, email, assunto} = this.props;
+
+        adicionaContato(data, nome, email, assunto);
         alert("Contato enviado com sucesso");
     }
 
     render() {
+
+        const {data, nome, email, assunto, alterarData, alterarNome, alterarEmail, alterarAssunto, adicionaContato} = this.props;
+
         return (
             <div>
                 <h3 className="border-bottom">Formulario</h3>
@@ -34,8 +36,8 @@ class FormContato extends Component {
                             <input type="date"
                                 className="form-control" 
                                 id="data"
-                                value={this.props.data}
-                                onChange={this.props.alterarData} 
+                                value={data}
+                                onChange={alterarData} 
                             />
                         </div>
                     </div>
@@ -48,8 +50,8 @@ class FormContato extends Component {
                                 type="text"
                                 className="form-control" 
                                 id="nome"
-                                value={this.props.nome} 
-                                onChange={this.props.alterarNome}
+                                value={nome} 
+                                onChange={alterarNome}
                             />
                         </div>
                     </div>
@@ -62,8 +64,8 @@ class FormContato extends Component {
                                 type="email"
                                 className="form-control" 
                                 id="email"
-                                value={this.props.email} 
-                                onChange={this.props.alterarEmail}
+                                value={email} 
+                                onChange={alterarEmail}
                             />
                         </div>
                     </div>
@@ -76,8 +78,8 @@ class FormContato extends Component {
                                 className="form-control"
                                 id="assunto" 
                                 rows="5"
-                                value={this.props.assunto}
-                                onChange={this.props.alterarAssunto} 
+                                value={assunto}
+                                onChange={alterarAssunto} 
                             />
                         </div>
                     </div>
