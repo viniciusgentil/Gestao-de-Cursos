@@ -1,18 +1,6 @@
 import React from 'react';
 
 export default class Formulario extends React.Component {
-    
-    /*
-    initialState = {
-        
-    }
-
-    constructor(props) {
-        super(props);
-
-        this.state = this.initialState;
-    }
-    */
         
     render() {
         return (

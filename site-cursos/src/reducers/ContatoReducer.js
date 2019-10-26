@@ -16,6 +16,8 @@ export default (state = INICIAL_STATE, action) => {
             return { ...state, email: action.info };
         case 'ATUALIZA_ASSUNTO':
             return { ...state, assunto: action.info };
+        case 'LIMPAR_FORM':
+            return INICIAL_STATE;
         default:
             return state;
     }
