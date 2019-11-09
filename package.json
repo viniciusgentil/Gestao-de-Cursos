@@ -1,0 +1,24 @@
+{
+  "name": "react-impacta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viniciusgentil/react-impacta.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/viniciusgentil/react-impacta/issues"
+  },
+  "homepage": "https://github.com/viniciusgentil/react-impacta#readme",
+  "dependencies": {
+    "expo-cli": "^3.4.1",
+    "react-native-cli": "^2.0.1"
+  }
+}
