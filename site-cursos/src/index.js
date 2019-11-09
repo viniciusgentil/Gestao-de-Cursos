@@ -5,14 +5,16 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import reducers from './reducers'
 
-const store = createStore(reducers);
+//const store = createStore(reducers); -- trocado quando passamos a utilizar o middleware THUNK
+const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 
 ReactDOM.render(
     <BrowserRouter>
-        <Provider store={store}>
+        <Provider store={createStoreWithMiddleware(reducers)}>
             <App />
         </Provider>
     </BrowserRouter>, document.getElementById('root'));

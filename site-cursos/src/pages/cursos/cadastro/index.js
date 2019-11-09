@@ -7,44 +7,18 @@ import CursoList from '../lista';
 const URL = "http://localhost:3200/api/curso";
 
 export default class Cadastro extends React.Component {
-
-    initialState = {
-        data: '',
-        _id: '',
-        codigo: 0,
-        descricao: '',
-        cargaHoraria: '',
-        preco: 0.0,
-        categoria: 'REDES'
-    };
-
+    
     constructor(props) {
         super(props);
-
-        this.state = this.initialState;
-
-        this.alteraCodigo = this.alteraCodigo.bind(this);
-        this.alteraDescricao = this.alteraDescricao.bind(this);
-        this.alteraCargaHoraria = this.alteraCargaHoraria.bind(this);
-        this.alteraPreco = this.alteraPreco.bind(this);
-        this.alteraCategoria = this.alteraCategoria.bind(this);
-        this.adicionarCurso = this.adicionarCurso.bind(this);
-        this.removerCurso = this.removerCurso.bind(this);
-        this.consultarCurso = this.consultarCurso.bind(this);
     }
 
     componentWillMount() {
-        this.listar();
+        //this.listar();
     }
-
-    listar() {
-        axios.get(URL)
-            .then(response => this.setState({ ...this.state, data: response.data }))
-    }
-
+    
     adicionarCurso(e) {
 
-        e.preventDefault();
+        /*e.preventDefault();
 
         const {_id, codigo, descricao, cargaHoraria, preco, categoria} = this.state;
         const body = { codigo, descricao, cargaHoraria, preco, categoria };
@@ -65,7 +39,7 @@ export default class Cadastro extends React.Component {
             })
             .catch(error => this.callBackError() );
 
-        }
+        }*/
         
     }
 
@@ -132,69 +106,20 @@ export default class Cadastro extends React.Component {
 
     }
 
-    consultarCurso = function (curso) {
-
-        this.setState({
-            ...this.state,
-            _id: curso._id,
-            codigo: curso.codigo,
-            descricao: curso.descricao,
-            cargaHoraria: curso.cargaHoraria,
-            preco: curso.preco,
-            categoria: curso.categoria
-        });
-
-    }
-
-    alteraCodigo(codigo) {
-        this.setState({ codigo });
-    }
-
-    alteraDescricao(descricao) {
-        this.setState({ descricao });
-    }
-
-    alteraCargaHoraria(cargaHoraria) {
-        this.setState({ cargaHoraria });
-    }
-
-    alteraPreco(preco) {
-        this.setState({ preco });
-    }
-
-    alteraCategoria(categoria) {
-        this.setState({ categoria });
-    }
-
     render() {
         return (
 
             <div className="row border-bottom">
                 <div className="col-md-6">
-                    <CursoForm
-                        codigo={this.state.codigo}
-                        descricao={this.state.descricao}
-                        cargaHoraria={this.state.cargaHoraria}
-                        preco={this.state.preco}
-                        categoria={this.state.categoria}
-                        adicionarCurso={this.adicionarCurso}
-                        alteraCodigo={this.alteraCodigo}
-                        alteraDescricao={this.alteraDescricao}
-                        alteraCargaHoraria={this.alteraCargaHoraria}
-                        alteraPreco={this.alteraPreco}
-                        alteraCategoria={this.alteraCategoria}
-                        txtBotao={this.state._id && this.state._id !== '' ? "Atualizar" : "Adicionar"}
-                    />
+                    <CursoForm/>
                 </div>
                 <div className="col-md-6">
-                    <CursoList
-                        lista={this.state.data}
-                        removerCurso={this.removerCurso}
-                        consultarCurso={this.consultarCurso}
-                    />
+                    <CursoList/>
                 </div>
             </div>
 
         );
     }
 }
+
+

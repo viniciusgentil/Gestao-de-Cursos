@@ -1,6 +1,18 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { 
+    consultarCurso, 
+    removerCurso,
+    listarCursos
+} from '../../../actions/CursoAction';
 
-export default class Lista extends React.Component {
+class Lista extends React.Component {
+
+    componentWillMount() {
+        this.props.listarCursos();
+    }
+
     render() {
 
         const exibirLinhas = () => {
@@ -19,7 +31,7 @@ export default class Lista extends React.Component {
                         &nbsp; 
                         <button 
                             className="btn btn-danger"
-                            onClick={ () => this.props.removerCurso(curso) }
+                            onClick={ this.props.removerCurso }
                         >
                             <i className="fa fa-trash-o"></i>
                         </button>
@@ -49,3 +61,18 @@ export default class Lista extends React.Component {
         );
     }
 }
+
+
+const mapStateToProps = state => ({
+    lista: state.curso.lista
+});
+
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+    consultarCurso,
+    removerCurso,
+    listarCursos
+}, dispatch);
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Lista);
